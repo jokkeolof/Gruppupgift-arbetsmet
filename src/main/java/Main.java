@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -9,13 +7,13 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        HashMap<Character, String> morse = new HashMap<>();
+        HashMap<Character, String> morse = new HashMap<Character, String>();
 
             morse.put('a',  ".- "    );  morse.put('b',  "-... "  );
             morse.put('c',  "-.-. "  );  morse.put('d',  "-.. "   );
             morse.put('e',  ". "     );  morse.put('f',  "..-. "  );
             morse.put('g',  "--. "   );  morse.put('h',  ".... "  );
-            morse.put('i',  ".. "    );  morse.put('j',  ".--- "  );
+            morse.put('i', "src/test ");  morse.put('j',  ".--- "  );
             morse.put('k',  "-.- "   );  morse.put('l',  ".-.. "  );
             morse.put('m',  "-- "    );  morse.put('n',  "-. "    );
             morse.put('o',  "--- "   );  morse.put('p',  ".--. "  );
