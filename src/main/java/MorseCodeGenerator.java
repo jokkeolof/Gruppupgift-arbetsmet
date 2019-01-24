@@ -41,6 +41,7 @@ public class MorseCodeGenerator {
 		private int hz;
 		private double volume;
 		private boolean isPlaying;
+		private int dot, dash, word, characterSpace, elementSpace;
 
 
 		// Constructor
@@ -48,6 +49,13 @@ public class MorseCodeGenerator {
 
 			hz = 666;  // Tone frequency
 			volume = 0.5;  // Tone volume
+
+			// Length of different codes
+			dot = 35;
+			dash = dot * 3;
+			characterSpace = dot * 3;
+			elementSpace = dot;
+			word = dot * 7;
 
 			buf = new byte[1];
 		    audioFormat = new AudioFormat(
@@ -90,13 +98,16 @@ public class MorseCodeGenerator {
 
 				// If it's a . play a short tone
 				if (morseCode.charAt(i) == '.') {
-					playShort();
-				} else playLong();  // Else play a long tone
+					playDot();
+				} else if (morseCode.charAt(i) == '/') {
+					playWord();  // Play silence between words.
+				}
+				else playDash();  // Else play a long tone
 			}
 
 			// Create silence between letters
 			try {
-				Thread.sleep(130);
+				Thread.sleep(characterSpace);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -107,22 +118,31 @@ public class MorseCodeGenerator {
 
 
 		// Method to play short beep
-		private void playShort () {
+		private void playDot () {
 
 			// Length of tone
-			int millisec = 35;
+			int millisec = dot;
 
 			playTone(hz, millisec, volume);
 		}
 
 
 		// Method to play long tone
-		private void playLong() {
+		private void playDash() {
 
 			// Length of tone
-			int millisec = 120;
+			int millisec = dash;
 
 			playTone(hz, millisec, volume);
+		}
+
+
+		// Method to play short beep
+		private void playWord() {
+
+			// Length of tone
+			int millisec = word;
+				playTone(hz, millisec, volume);
 		}
 
 
