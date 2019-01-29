@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class MorseCode {
 
     public void morsecode(){
-
     Scanner input = new Scanner(System.in);
     HashMap<Character, String> morse = new HashMap<Character, String>();
 
@@ -23,8 +22,8 @@ public class MorseCode {
                     morse.put('u',  "..-"   );  morse.put('v',  "...-"  );
                     morse.put('w',  ".--"   );  morse.put('x',  "-..-"  );
                     morse.put('y',  "-.--"  );  morse.put('z',  "--.."  );
-                    morse.put('�',  ".--.-" );  morse.put('�',  ".-.-"  );
-                    morse.put('�',  "---."  );
+                    morse.put('å',  ".--.-" );  morse.put('ä',  ".-.-"  );
+                    morse.put('ö',  "---."  );
 
                     morse.put('1',  ".----" );  morse.put('2',  "..---" );
                     morse.put('3',  "...--" );  morse.put('4',  "....-" );
@@ -36,7 +35,7 @@ public class MorseCode {
                     morse.put('.',  ".-.-.-");  morse.put('-',  "-....-");
                     morse.put('(',  "-.--." );  morse.put(')',  "-..-.-");
                     morse.put('@',  ".--.-.");  morse.put('"',  ".-..-.");
-                    morse.put('%',  ".--.." );  morse.put('�',  ".----.");
+                    morse.put('%',  ".--.." );  morse.put('´',  ".----.");
                     morse.put(';',  "-.-.-.");  morse.put(':',  "---...");
                     morse.put('?',  "-..-." );  morse.put('!',  "---."  );
 
@@ -45,10 +44,11 @@ public class MorseCode {
         StringBuilder sb = new StringBuilder();
         String value = input.nextLine();
 
-        for (char c : value.toLowerCase().toCharArray()){
+        for (char c : value.toLowerCase().toCharArray()) {
             sb.append(morse.get(c));
 
-        System.out.println(sb);
+            System.out.println(sb);
 
 
-                    } } }
+        }
+    } }
