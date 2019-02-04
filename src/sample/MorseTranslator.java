@@ -45,7 +45,7 @@ public class MorseTranslator {
         morse.put('.',  ".-.-.-");  morse.put('-',  "-....-");
         morse.put('(',  "-.--." );  morse.put(')',  "-..-.-");
         morse.put('@',  ".--.-.");  morse.put('"',  ".-..-.");
-        morse.put('%',  ".--.." );  morse.put('´',  ".----.");
+        morse.put('%',  ".--.." );  morse.put('\u00b4',  ".----.");
         morse.put(';',  "-.-.-.");  morse.put(':',  "---...");
         morse.put('?',  "-..-." );  morse.put('!',  "---."  );
 
