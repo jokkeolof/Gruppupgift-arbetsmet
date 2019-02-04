@@ -26,8 +26,7 @@ MorseCodeGenerator MCG = new MorseCodeGenerator();
 @FXML
 private void translatebuttonpush(){
 String str = MorseIN.getText();
-MT.toStringArray(str);
-MorseOUT.setText(MT.morseOutput.toString());
+MorseOUT.setText(MT.toArrayList(str).toString());
 }
 @FXML
     private void playsoundbuttonpush(){
