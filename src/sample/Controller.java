@@ -30,8 +30,22 @@ MorseOUT.setText(MT.toArrayList(str).toString());
 }
 @FXML
     private void playsoundbuttonpush(){
-String str =MorseIN.getText();
-MCG.playSound(str);
+    String str = MorseIN.getText();
+    MCG.startSound();
+    MCG.playSound(MT.toStringArray(str));
+
+
 
 }
+	Thread thread = new Thread() {
+		public void playsoundbuttonpushTHREAD() {
+		    String str = MorseIN.getText();
+			MCG.startSound();
+			MCG.playSound(str);
+            thread.start();}
+	};
+	//thread.start();
+
+
 }
+
