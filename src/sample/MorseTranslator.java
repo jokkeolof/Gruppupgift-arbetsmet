@@ -2,7 +2,7 @@ package sample;
 
 import java.util.HashMap;
 import java.util.Scanner;
-
+/*
 public class MorseTranslator {
 
     public StringBuilder translate() {
@@ -52,3 +52,4 @@ public class MorseTranslator {
 
     }
 }
+*/
