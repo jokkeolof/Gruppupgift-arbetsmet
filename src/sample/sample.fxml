@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
@@ -32,7 +33,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#menubarABOUT" text="About" />
                     </items>
                 </Menu>
             </menus>
@@ -43,7 +44,7 @@
             <Font name="System Bold Italic" size="18.0" />
          </font></Label>
         <TextField fx:id="MorseIN" layoutX="13.0" layoutY="127.0" prefHeight="27.0" prefWidth="453.0" promptText="Insert text for translation here" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="134.0" />
-        <Label fx:id="MorseOUT" alignment="TOP_LEFT" ellipsisString=". . ." layoutX="10.0" layoutY="169.0" prefHeight="202.0" prefWidth="453.0" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="165.0">
+        <Label alignment="TOP_LEFT" ellipsisString=". . ." layoutX="10.0" layoutY="169.0" prefHeight="202.0" prefWidth="453.0" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="165.0">
          <font>
             <Font name="Courier" size="18.0" />
          </font></Label>
@@ -81,5 +82,10 @@
             </Button>
             </children>
         </VBox>
+      <TextArea fx:id="MorseOUTTA" layoutX="13.0" layoutY="157.0" prefHeight="211.0" prefWidth="453.0" wrapText="true">
+         <font>
+            <Font name="Courier Bold Oblique" size="18.0" />
+         </font>
+      </TextArea>
     </children>
 </AnchorPane>

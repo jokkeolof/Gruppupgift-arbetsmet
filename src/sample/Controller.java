@@ -15,6 +15,7 @@ public class Controller {
 
     @FXML private TextField MorseIN;
     @FXML private Label MorseOUT;
+    @FXML private TextArea MorseOUTTA;
     @FXML private Button Translate;
     @FXML private Button PlaySound;
     @FXML private Button PlaySound2;
@@ -31,15 +32,21 @@ Main M = new Main();
 @FXML
 private void translatebuttonpush(){
 String str = MorseIN.getText();
-MorseOUT.setText(MT.toArrayList(str).toString());
+MorseOUTTA.setText(MT.toArrayList(str).toString());
 
 if (soundCheckBox.isSelected()){
     playsoundbuttonpush();
 }
 }
 
-public void menubar (){
-   // CloseItem.setOnAction(event ->M);
+public void menubarCLOSE(){
+
+}
+public void menubarABOUT(){
+    String str = "this program translates to morsecode with sound!";
+    MorseIN.setText(str);
+    translatebuttonpush();
+    playsoundbuttonpush();
 }
     @FXML
     private void playsoundbuttonpush(){
