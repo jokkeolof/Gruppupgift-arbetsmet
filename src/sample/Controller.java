@@ -17,15 +17,35 @@ public class Controller {
     @FXML
     private Button PlaySound;
 
-    @FXML
-    private CheckBox test;
-
-    private void testar(){
-        if (test.isSelected());
 
 
-    }
+MorseTranslator MT = new MorseTranslator();
+
+MorseCodeGenerator MCG = new MorseCodeGenerator();
+
+@FXML
+private void translatebuttonpush(){
+String str = MorseIN.getText();
+MorseOUT.setText(MT.toArrayList(str).toString());
+}
+@FXML
+    private void playsoundbuttonpush(){
+    String str = MorseIN.getText();
+    MCG.startSound();
+    MCG.playSound(MT.toStringArray(str));
 
 
 
 }
+	Thread thread = new Thread() {
+		public void playsoundbuttonpushTHREAD() {
+		    String str = MorseIN.getText();
+			MCG.startSound();
+			MCG.playSound(str);
+            thread.start();}
+	};
+	//thread.start();
+
+
+}
+

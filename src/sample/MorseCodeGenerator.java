@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.ArrayList;
+
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
@@ -70,7 +72,7 @@ public class MorseCodeGenerator {
 
 
 		// Public method for playing sound from morse code String Array
-		public void playSound(String[] morseCode) {
+		public synchronized void playSound(String[] morseCode) {
 
 			// Loop through the code array
 			for (int i = 0; i < morseCode.length; i++) {
@@ -85,6 +87,25 @@ public class MorseCodeGenerator {
 				}
 			}
 
+		}
+
+
+		// Public method for playing sound from an ArrayList of morse code
+		public synchronized void playSound(ArrayList<String> morseCode) {
+
+			// Loop through the List
+			for (int i = 0; i < morseCode.size(); i++) {
+
+				if (isPlaying) {		// As long as we don't hit the STOP-button
+
+					// Play the sound for each code
+					playSound(morseCode.get(i));
+
+				}	else {		// Stop button is hit.
+					return;
+				}
+
+			}
 		}
 
 

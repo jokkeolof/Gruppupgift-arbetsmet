@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setTitle("Morse Code Translator");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
-        
+
     }
 
 
