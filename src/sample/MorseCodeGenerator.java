@@ -49,14 +49,14 @@ public class MorseCodeGenerator {
 		// Constructor
 		public MorseCodeGenerator() {
 
-			hz = 666;  // Tone frequency
+			hz = 777;  // Tone frequency
 			volume = 0.5;  // Tone volume
 
 			// Length of different codes
-			dot = 35;
-			dash = dot * 3;
-			characterSpace = dot * 3;
-			wordSpace = dot * 7;
+			dot = 45;
+			dash = dot * 4;
+			characterSpace = dot * 7;
+			wordSpace = dot * 12;
 
 			buf = new byte[1];
 		    audioFormat = new AudioFormat(

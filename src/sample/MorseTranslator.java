@@ -86,10 +86,10 @@ public class MorseTranslator {
 
     		// If it's a known character, translate it and put it in the String array
     		if (!(morse.get(currentLetter) == null)) {
-    			morseOutput.add(morse.get(currentLetter));
+    			morseOutput.add("  " + morse.get(currentLetter) + "  ");
     		}
     	}
-
+    	
     	return morseOutput;
     }
 }
