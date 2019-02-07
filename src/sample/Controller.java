@@ -1,51 +1,67 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Controller {
 
-    @FXML
-    private TextField MorseIN;
-    @FXML
-    private Label MorseOUT;
-    @FXML
-    private Button Translate;
-    @FXML
-    private Button PlaySound;
-
+    @FXML private TextField MorseIN;
+    @FXML private Label MorseOUT;
+    @FXML private Button Translate;
+    @FXML private Button PlaySound;
+    @FXML private Button PlaySound2;
+    @FXML private CheckBox soundCheckBox;
+    @FXML private MenuItem CloseItem;
+    @FXML private MenuItem AboutItem;
 
 
 MorseTranslator MT = new MorseTranslator();
 
 MorseCodeGenerator MCG = new MorseCodeGenerator();
+Main M = new Main();
 
 @FXML
 private void translatebuttonpush(){
 String str = MorseIN.getText();
 MorseOUT.setText(MT.toArrayList(str).toString());
+
+if (soundCheckBox.isSelected()){
+    playsoundbuttonpush();
 }
-@FXML
+}
+
+public void menubar (){
+   // CloseItem.setOnAction(event ->M);
+}
+    @FXML
     private void playsoundbuttonpush(){
-    String str = MorseIN.getText();
-    MCG.startSound();
-    MCG.playSound(MT.toStringArray(str));
+        String str = MorseIN.getText();
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                MCG.startSound();
+                MCG.playSound(MT.toStringArray(str));
+            }
+        };
+        thread.start();
+    }
+
+    public void changesceneTOFILE(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("ReadFile.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
 
 
-
-}
-	Thread thread = new Thread() {
-		public void playsoundbuttonpushTHREAD() {
-		    String str = MorseIN.getText();
-			MCG.startSound();
-			MCG.playSound(str);
-            thread.start();}
-	};
-	//thread.start();
-
-
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+    }
 }
 
