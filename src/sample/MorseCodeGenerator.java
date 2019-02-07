@@ -123,7 +123,7 @@ public class MorseCodeGenerator {
 				currentCharacter = morseCode.charAt(i);
 
 				// If it's a . play a short tone
-				if (currentCharacter == '*') {
+				if (currentCharacter == '.') {
 					playDot();
 				}
 				else if (currentCharacter == '-') {
