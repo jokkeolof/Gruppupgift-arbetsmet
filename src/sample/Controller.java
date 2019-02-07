@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,8 +33,7 @@ Main M = new Main();
 @FXML
 private void translatebuttonpush(){
 String str = MorseIN.getText();
-MorseOUTTA.setText(MT.toArrayList(str).toString());
-
+ MorseOUTTA.setText(MT.toArrayList(str).toString());
 if (soundCheckBox.isSelected()){
     playsoundbuttonpush();
 }

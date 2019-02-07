@@ -39,16 +39,21 @@
             </menus>
         </MenuBar>
         <AnchorPane layoutX="-39.779998779296875" layoutY="-39.779998779296875" />
-        <Label layoutX="14.0" layoutY="90.0" text="Morsecode translator v 1.0" AnchorPane.leftAnchor="14.0">
+        <Label layoutX="14.0" layoutY="90.0" text="Morsecode translator v 1.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="90.0">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font></Label>
-        <TextField fx:id="MorseIN" layoutX="13.0" layoutY="127.0" prefHeight="27.0" prefWidth="453.0" promptText="Insert text for translation here" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="134.0" />
-        <Label alignment="TOP_LEFT" ellipsisString=". . ." layoutX="10.0" layoutY="169.0" prefHeight="202.0" prefWidth="453.0" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="165.0">
+        <TextField fx:id="MorseIN" layoutX="13.0" layoutY="127.0" prefHeight="27.0" prefWidth="453.0" promptText="Insert text for translation here" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="127.0" />
+        <Label alignment="TOP_LEFT" ellipsisString=". . ." layoutX="10.0" layoutY="169.0" opacity="0.0" prefHeight="202.0" prefWidth="453.0" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="165.0">
          <font>
             <Font name="Courier" size="18.0" />
          </font></Label>
-        <VBox layoutX="479.0" layoutY="127.0" prefHeight="259.0" prefWidth="111.0">
+      <TextArea fx:id="MorseOUTTA" editable="false" layoutX="13.0" layoutY="157.0" prefHeight="211.0" prefWidth="453.0" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="157.0">
+         <font>
+            <Font name="Courier Bold Oblique" size="18.0" />
+         </font>
+      </TextArea>
+        <VBox layoutX="479.0" layoutY="127.0" prefHeight="259.0" prefWidth="111.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="127.0">
             <children>
                 <Button fx:id="Translate" alignment="CENTER" mnemonicParsing="false" onAction="#translatebuttonpush" prefHeight="30.0" prefWidth="100.0" text="Translate">
                     <padding>
@@ -82,10 +87,5 @@
             </Button>
             </children>
         </VBox>
-      <TextArea fx:id="MorseOUTTA" layoutX="13.0" layoutY="157.0" prefHeight="211.0" prefWidth="453.0" wrapText="true">
-         <font>
-            <Font name="Courier Bold Oblique" size="18.0" />
-         </font>
-      </TextArea>
     </children>
 </AnchorPane>
