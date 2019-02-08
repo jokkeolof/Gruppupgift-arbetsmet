@@ -4,9 +4,11 @@ public class ParseConfig {
 
     //All HTML kod, javascript eller CSS måste bort
     public static String[] DATA = {
-
+            ",     <meta charset=\"UTF-8\">, ",
+            "<html>",
             "<title>",
             "</title>",
+            "     <meta charset=\"UTF-8\">",
             "<meta charset=\"UTF-8\">",
             "<!DOCTYPE HTML>",
             "<head prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#\">",
