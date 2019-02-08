@@ -97,13 +97,14 @@ public class Main extends Application {
         try {
             //Load StartView from StartView.fxml
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("views/StartView.fxml"));
+            loader.setLocation(Main.class.getResource("views/sample.fxml"));
             //loader.setLocation(Main.class.getResource("view/AreaView.fxml"));
             //BorderPane startView = (BorderPane) loader.load();
             AnchorPane startView = (AnchorPane) loader.load();
 
             //Create an instance of ViewController to hold the different controller. We need Scene which is the "foundation" of the view
             ViewController viewcontroller = new ViewController(scene);
+
             //Add all the controller we want in our project here
             //viewcontroller.addScreen("RequestView", FXMLLoader.load(getClass().getResource( "view/RequestViewLayout.fxml" ))); //Name + location
 
