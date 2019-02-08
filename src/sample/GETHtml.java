@@ -9,9 +9,9 @@ import java.util.*;
 
 public class GETHtml {
 
-    public static void main(String[] args) {
+    public static void GETArticleFromURL(String url) {
        GETHtml get = new GETHtml();
-       List<String> FromURLAsArray = get.parse("https://www.aftonbladet.se/nyheter/a/Eo1gvP/rs-viruset-pa-frammarsch");
+       List<String> FromURLAsArray = get.parse(url);
         List<String> wordList = Arrays.asList(ParseConfig.DATA); // RemovableWords listan görs om till en String list
         List<String> Output = filter(FromURLAsArray, wordList);
         String test = Output.get(96);
