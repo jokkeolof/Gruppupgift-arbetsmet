@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <Label alignment="CENTER" text="Made by: Anders Nilsson, Dennis Larsson, Joakim Olofsson, Nicklas Holmberg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <padding>
@@ -43,7 +43,7 @@
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font></Label>
-        <TextField fx:id="MorseIN" layoutX="13.0" layoutY="127.0" prefHeight="27.0" prefWidth="453.0" promptText="Insert text for translation here" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="127.0" />
+        <TextField fx:id="MorseIN" layoutX="13.0" layoutY="127.0" prefHeight="27.0" prefWidth="453.0" promptText="Insert text or Aftonbladet URL for translation here" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="127.0" />
         <Label alignment="TOP_LEFT" ellipsisString=". . ." layoutX="10.0" layoutY="169.0" opacity="0.0" prefHeight="202.0" prefWidth="453.0" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="165.0">
          <font>
             <Font name="Courier" size="18.0" />
@@ -69,14 +69,6 @@
                </VBox.margin>
             </CheckBox>
             <Region prefHeight="100.0" VBox.vgrow="ALWAYS" />
-                <Button fx:id="PlaySound" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Read URL">
-                    <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                    </padding>
-                    <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </VBox.margin>
-                </Button>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#changesceneTOFILE" prefHeight="30.0" prefWidth="100.0" text="Read File">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

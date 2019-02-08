@@ -28,12 +28,23 @@ public class Controller {
 MorseTranslator MT = new MorseTranslator();
 
 MorseCodeGenerator MCG = new MorseCodeGenerator();
+
 Main M = new Main();
 
 @FXML
 private void translatebuttonpush(){
 String str = MorseIN.getText();
  MorseOUTTA.setText(MT.toArrayList(str).toString());
+
+ /*
+ if(str.contains("https://www.aftonbladet.se/")) {
+     GEThtml get = new GEThtml();
+     String ReturnedData = get.GETArticleFromURL(str);
+ } else if(soundCheckBox.isSelected()) {
+     playsoundbuttonpush();
+ }
+ */
+
 if (soundCheckBox.isSelected()){
     playsoundbuttonpush();
 }
