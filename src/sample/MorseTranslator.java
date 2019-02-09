@@ -9,8 +9,7 @@ public class MorseTranslator {
 	// Variables
 	HashMap<Character, String> morse;
 
-	String[] morseOutput;
-
+	private String[] morseOutput;
 
     // Constructor
 	public MorseTranslator() {
@@ -86,11 +85,45 @@ public class MorseTranslator {
 
     		// If it's a known character, translate it and put it in the String array
     		if (!(morse.get(currentLetter) == null)) {
-    			morseOutput.add("  " + morse.get(currentLetter) + "   ");
+    			morseOutput.add(morse.get(currentLetter));
     		}
     	}
 
     	return morseOutput;
     }
+
+
+
+    // Method to translate and make a printable String
+    public String translateToString(String textToTranslate) {
+
+    	String translationString = "";
+
+    	char currentLetter;		// Temp variable
+    	for (int i = 0; i < textToTranslate.length(); i++) {
+
+    		// Get the letter to translate
+    		currentLetter = textToTranslate.toLowerCase().charAt(i);
+
+    		// If it's a known character, translate it and put it in the translate String
+    		if (!(morse.get(currentLetter) == null)) {
+
+    			// Check if there is a new word...
+    	    	if (morse.get(currentLetter).equals("/")) {				// Sign for new word
+    	    		translationString += "  ";							// Add also whitespace between words
+    	    		translationString += morse.get(currentLetter) + " ";
+    	    	}
+    	    	// Else just add the code to the string
+    	    	else {
+    	    		translationString += morse.get(currentLetter);
+    	    	}
+    		}
+    		// Add whitespace between letters
+    		translationString += "  ";
+    	}
+    	return translationString;
+    }
+
+
 }
 

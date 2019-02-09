@@ -1,16 +1,21 @@
 package sample;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.text.TextFlow;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Controller {
 
@@ -24,6 +29,8 @@ public class Controller {
     @FXML private MenuItem CloseItem;
     @FXML private MenuItem AboutItem;
 
+    private ArrayList<String> translation = new ArrayList<>();
+
 
 MorseTranslator MT = new MorseTranslator();
 
@@ -33,8 +40,12 @@ Main M = new Main();
 
 @FXML
 private void translatebuttonpush(){
-String str = MorseIN.getText();
- MorseOUTTA.setText(MT.toArrayList(str).toString());
+
+	String str = MorseIN.getText();
+
+ 	// Setting translation to textfield
+	MorseOUTTA.setText(MT.translateToString(str));
+
 
  /*
  if(str.contains("https://www.aftonbladet.se/")) {
@@ -46,7 +57,9 @@ String str = MorseIN.getText();
  */
 
 if (soundCheckBox.isSelected()){
+
     playsoundbuttonpush();
+
 }
 }
 

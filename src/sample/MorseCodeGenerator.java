@@ -54,9 +54,9 @@ public class MorseCodeGenerator {
 
 			// Length of different codes
 			dot = 45;
-			dash = dot * 4;
-			characterSpace = dot * 7;
-			wordSpace = dot * 12;
+			dash = dot * 3;
+			characterSpace = dot * 3;
+			wordSpace = dot * 7;
 
 			buf = new byte[1];
 		    audioFormat = new AudioFormat(
