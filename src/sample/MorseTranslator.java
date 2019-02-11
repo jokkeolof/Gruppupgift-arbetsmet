@@ -65,6 +65,9 @@ public class MorseTranslator {
     		if (!(morse.get(currentLetter) == null)) {
     			morseOutput[i] = morse.get(currentLetter);
     		}
+    		else {
+    			morseOutput[i] = " ";
+    		}
     	}
 
     	return morseOutput;
@@ -86,6 +89,9 @@ public class MorseTranslator {
     		// If it's a known character, translate it and put it in the String array
     		if (!(morse.get(currentLetter) == null)) {
     			morseOutput.add(morse.get(currentLetter));
+    		}
+    		else {
+    			morseOutput.add(" ");
     		}
     	}
 
