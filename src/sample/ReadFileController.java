@@ -49,10 +49,8 @@ public void loadfile(){
     };  }
     String str = "";
 public void loadfile2(ActionEvent event) {
-    Controller C = new Controller();
         FileChooser fc = new FileChooser();
         File loadedfile = fc.showOpenDialog(null);
-
 
              try {
                 FileReader fr = new FileReader(loadedfile.getPath());
@@ -62,7 +60,6 @@ public void loadfile2(ActionEvent event) {
                 while ((sCurrentLine = br.readLine()) !=null) {
                 str += sCurrentLine + "\n";
                     textareaIN.setText(str);
-
                 }
 
                 br.close();
@@ -75,7 +72,6 @@ public void loadfile2(ActionEvent event) {
     public void translatebuttonpush(){
         String str2 = textareaIN.getText();
         textareaUT.setText(MT2.toArrayList(str).toString());
-        //textareaUT.setText(MT2.toStringArray(str).toString());
         if (SoundCheckBox.isSelected()){
             playsoundbuttonpush();
         }

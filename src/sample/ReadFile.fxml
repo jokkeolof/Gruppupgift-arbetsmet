@@ -38,7 +38,7 @@
       <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="608.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="60.0">
          <items>
             <TextArea fx:id="textareaIN" prefHeight="327.0" prefWidth="276.0" />
-            <TextArea fx:id="textAreaUT" prefHeight="327.0" prefWidth="276.0" />
+            <TextArea fx:id="textareaUT" prefHeight="327.0" prefWidth="276.0" wrapText="true" />
          </items>
       </SplitPane>
    </children>
