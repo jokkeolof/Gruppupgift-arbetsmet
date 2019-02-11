@@ -53,7 +53,7 @@
             <Font name="Courier Bold Oblique" size="18.0" />
          </font>
       </TextArea>
-        <VBox layoutX="479.0" layoutY="127.0" prefHeight="259.0" prefWidth="111.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="127.0">
+        <VBox layoutX="479.0" layoutY="127.0" prefHeight="246.0" prefWidth="111.0" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="127.0">
             <children>
                 <Button fx:id="Translate" alignment="CENTER" mnemonicParsing="false" onAction="#translatebuttonpush" prefHeight="30.0" prefWidth="100.0" text="Translate">
                     <padding>
