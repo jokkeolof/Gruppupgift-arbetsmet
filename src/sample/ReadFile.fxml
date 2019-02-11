@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReadFileController">
    <children>
@@ -16,7 +17,7 @@
          <children>
             <HBox prefHeight="50.0" prefWidth="341.0" spacing="10.0">
                <children>
-                  <Button fx:id="file" mnemonicParsing="false" onAction="#loadfile2" prefHeight="30.0" prefWidth="100.0" text="Add file" />
+                  <Button fx:id="file" mnemonicParsing="false" onAction="#loadfile2" prefHeight="30.0" prefWidth="100.0" text="Add txt file" />
                   <Button mnemonicParsing="false" onAction="#translatebuttonpush" prefHeight="30.0" prefWidth="100.0" text="Translate">
                      <HBox.margin>
                         <Insets />
@@ -38,7 +39,10 @@
       <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="608.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="60.0">
          <items>
             <TextArea fx:id="textareaIN" prefHeight="327.0" prefWidth="276.0" />
-            <TextArea fx:id="textareaUT" prefHeight="327.0" prefWidth="276.0" wrapText="true" />
+            <TextArea fx:id="textareaUT" prefHeight="327.0" prefWidth="276.0" wrapText="true">
+               <font>
+                  <Font name="Courier Bold Oblique" size="18.0" />
+               </font></TextArea>
          </items>
       </SplitPane>
    </children>

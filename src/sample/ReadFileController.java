@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
+
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -26,12 +26,10 @@ public class ReadFileController extends  Controller{
     @FXML private Button file;
     @FXML private TextArea textareaIN;
     @FXML private TextArea textareaUT;
-    @FXML private ListView listviewIN;
     @FXML private CheckBox SoundCheckBox;
 
     MorseTranslator MT2 = new MorseTranslator();
     MorseCodeGenerator MCG2 = new MorseCodeGenerator();
-    Controller C = new Controller();
 
 public void loadfile(){
     EventHandler<ActionEvent> btnLoadEventListner = (ActionEvent event) -> {
