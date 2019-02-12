@@ -41,21 +41,18 @@ Main M = new Main();
 @FXML
 private void translatebuttonpush(){
 
+    MorseOUTTA.setText("");    //Börja med att reseta texten
 	String str = MorseIN.getText();
 
  	// Setting translation to textfield
-	MorseOUTTA.setText(MT.translateToString(str));
-
-
- /*
- if(str.contains("https://www.aftonbladet.se/")) {
-     GEThtml get = new GEThtml();
-     String ReturnedData = get.GETArticleFromURL(str);
- } else if(soundCheckBox.isSelected()) {
-     playsoundbuttonpush();
- }
- */
-
+    // Check if we are looking at a URL or if it's plain text. If URL grab the url and get the domain and return string of site. If plain text grab the text and run it thorugh the translator.
+    if(str.contains("https://www.aftonbladet.se/")) {
+        GEThtml get = new GEThtml();
+        String ReturnedData = get.GETArticleFromURL(str);
+        MorseOUTTA.setText(MT.translateToString(ReturnedData));
+    }else{
+        MorseOUTTA.setText(MT.translateToString(str));
+    }
 if (soundCheckBox.isSelected()){
 
     playsoundbuttonpush();
