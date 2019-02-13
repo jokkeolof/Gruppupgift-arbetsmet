@@ -26,6 +26,7 @@ public class GEThtml {
 
     public static List<String> parse(String inurl) {
         System.setProperty("https.protocols", "TLSv1.2,TLSv1.1,SSLv3");
+        System.setProperty("http.agent", "Chrome");
         String content = "";
         StringBuilder sb = null;
         BufferedReader br = null;
