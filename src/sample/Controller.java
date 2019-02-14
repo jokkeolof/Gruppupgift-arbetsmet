@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -20,7 +19,6 @@ import javafx.stage.Stage;
 public class Controller {
 
     @FXML private TextField MorseIN;
-    @FXML private Label MorseOUT;
     @FXML private TextArea MorseOUTTA;
     @FXML private Button Translate;
     @FXML private Button PlaySound;
@@ -64,10 +62,14 @@ public void menubarCLOSE(){
 }
 
 public void menubarABOUT(){
-    String str = "this program translates to morsecode with sound!";
+    String str = "This program translates text to morsecode with sound!";
     MorseIN.setText(str);
     translatebuttonpush();
     playsoundbuttonpush();
+}
+public void menubarABOUTUS() {
+    String str = "This program is made as a teamwork project in class:\nArbetsmetodik för utvecklare - Systemintegratör 2018/19\nMade by:\nAnders Nilsson\nDennis Larsson\nJoakim Olofsson\nNicklas Holmberg";
+    MorseOUTTA.setText(str);
 }
     @FXML
     private void playsoundbuttonpush(){
