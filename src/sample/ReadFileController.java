@@ -36,9 +36,11 @@ public class ReadFileController extends  Controller{
         MCG2.stopSound();
     }
 
-String str2MorseCode;
-String str2show;
+String str2MorseCode =  "";
+String str2show = "";
 public void loadfile2(ActionEvent event) {
+    textareaUT.setText("");
+    textareaIN.setText("");
         FileChooser fc = new FileChooser();
              fc.getExtensionFilters()
             .addAll(
