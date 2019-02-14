@@ -27,28 +27,25 @@ public class ReadFileController extends  Controller{
     @FXML private TextArea textareaIN;
     @FXML private TextArea textareaUT;
     @FXML private CheckBox SoundCheckBox;
+    @FXML private Button StopSound;
 
     MorseTranslator MT2 = new MorseTranslator();
     MorseCodeGenerator MCG2 = new MorseCodeGenerator();
 
-public void loadfile(){
-    EventHandler<ActionEvent> btnLoadEventListner = (ActionEvent event) -> {
-        FileChooser ChooseFile = new FileChooser();
-        ChooseFile.getExtensionFilters()
-                .addAll(
-                        new FileChooser.ExtensionFilter("TXT files (*.TXT)", "*.TXT"),
-                        new FileChooser.ExtensionFilter("txt files (*.txt)", "*.txt"));
+    public void stop() {
+        MCG2.stopSound();
+    }
 
-        File file = ChooseFile.showOpenDialog(null);
-        if (file != null) {
-
-                     //   listviewIN.getItems().add(ChooseFile.toString());
-        }
-    };  }
-    String str = "";
+String str2MorseCode;
+String str2show;
 public void loadfile2(ActionEvent event) {
         FileChooser fc = new FileChooser();
-        File loadedfile = fc.showOpenDialog(null);
+             fc.getExtensionFilters()
+            .addAll(
+                    new FileChooser.ExtensionFilter("TXT files (*.TXT)", "*.TXT"),
+                    new FileChooser.ExtensionFilter("txt files (*.txt)", "*.txt"));
+
+    File loadedfile = fc.showOpenDialog(null);
 
              try {
                 FileReader fr = new FileReader(loadedfile.getPath());
@@ -56,8 +53,9 @@ public void loadfile2(ActionEvent event) {
                 String sCurrentLine;
 
                 while ((sCurrentLine = br.readLine()) !=null) {
-                str += sCurrentLine + "\n";
-                    textareaIN.setText(str);
+                    str2show += sCurrentLine +"\n";
+                    str2MorseCode += sCurrentLine;
+                    textareaIN.setText(str2show);
                 }
 
                 br.close();
@@ -69,18 +67,17 @@ public void loadfile2(ActionEvent event) {
 
     public void translatebuttonpush(){
         String str2 = textareaIN.getText();
-        textareaUT.setText(MT2.toArrayList(str).toString());
+        textareaUT.setText(MT2.toArrayList(str2).toString());
         if (SoundCheckBox.isSelected()){
             playsoundbuttonpush();
         }
     }
     private void playsoundbuttonpush(){
-       // String str = textareaIN.getText();
         Thread thread = new Thread() {
             @Override
             public void run() {
                 MCG2.startSound();
-                MCG2.playSound(MT2.toStringArray(str));
+                MCG2.playSound(MT2.toStringArray(str2MorseCode));
             }
         };
         thread.start();

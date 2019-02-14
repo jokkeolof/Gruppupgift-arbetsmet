@@ -24,7 +24,7 @@ public class Controller {
     @FXML private TextArea MorseOUTTA;
     @FXML private Button Translate;
     @FXML private Button PlaySound;
-    @FXML private Button PlaySound2;
+    @FXML private Button Stopound;
     @FXML private CheckBox soundCheckBox;
     @FXML private MenuItem CloseItem;
     @FXML private MenuItem AboutItem;
@@ -33,9 +33,7 @@ public class Controller {
 
 
 MorseTranslator MT = new MorseTranslator();
-
 MorseCodeGenerator MCG = new MorseCodeGenerator();
-
 Main M = new Main();
 
 @FXML
@@ -52,14 +50,15 @@ private void translatebuttonpush(){
         MorseOUTTA.setText(MT.translateToString(ReturnedData));
     }else{
         MorseOUTTA.setText(MT.translateToString(str));
-    }
-if (soundCheckBox.isSelected()){
+        }
+    if (soundCheckBox.isSelected()){
 
     playsoundbuttonpush();
+}  }
 
+public void stop() {
+    MCG.stopSound();
 }
-}
-
 public void menubarCLOSE(){
     System.exit(0);
 }
