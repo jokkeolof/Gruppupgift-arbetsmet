@@ -47,9 +47,19 @@ private void translatebuttonpush(){
  	// Setting translation to textfield
     // Check if we are looking at a URL or if it's plain text. If URL grab the url and get the domain and return string of site. If plain text grab the text and run it thorugh the translator.
     if(str.contains("https://www.aftonbladet.se/")) {
+        if(str.contains("https://www.aftonbladet.se/tv")) {
+            MorseOUTTA.setText("Vi kan inte hantera aftonbladets TV sidor");
+            return;
+        }
+        MorseOUTTA.setText("Hämtar artikel..");
         GEThtml get = new GEThtml();
         String ReturnedData = get.GETArticleFromURL(str);
-        MorseOUTTA.setText(MT.translateToString(ReturnedData));
+        System.out.println(ReturnedData);
+        if(ReturnedData.equals(str)) { //Ibland kan det vara så att endast samma sträng retuneras(troligen pga unvis.it) Detta hanteras då så an får försöka igen
+            MorseOUTTA.setText("Det gick inte att ansluta till servern.. Det kanske är för många förfrågningar just nu, försök igen om några sekunder");
+        }else {
+            MorseOUTTA.setText(MT.translateToString(ReturnedData));
+        }
     }else{
         MorseOUTTA.setText(MT.translateToString(str));
     }

@@ -18,7 +18,7 @@ public class GEThtml {
         List<String> wordList = Arrays.asList(ParseConfig.DATA); // RemovableWords listan görs om till en String list
         List<String> Output = filter(FromURLAsArray, wordList);
         String test = Output.get(96);
-        String replaced = test.replaceAll(("(<div>|<\\/p>|<p>|<span class=\"article-link\" data-article-link-href=\"|<\\/span>|<\\/div>)"), "");
+        String replaced = test.replaceAll(("(<div>|<\\/p>|<p>|<span class=\"article-link\" data-article-link-href=\"|<\\/span>|<\\/div>|<picture>|<source/>|</picture>|<time>)|</time>|//aftonbladet.se/tagg/"), " ");
         //System.out.println(replaced);
         //System.out.println(Output.get(96));
         return replaced;
