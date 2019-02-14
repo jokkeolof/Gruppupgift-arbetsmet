@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <Label alignment="CENTER" text="Made by: Anders Nilsson, Dennis Larsson, Joakim Olofsson, Nicklas Holmberg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <padding>
@@ -28,7 +28,7 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem fx:id="CloseItem" mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="CloseItem" mnemonicParsing="false" onAction="#menubarCLOSE" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
