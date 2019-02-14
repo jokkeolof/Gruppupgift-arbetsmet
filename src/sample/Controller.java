@@ -61,8 +61,9 @@ if (soundCheckBox.isSelected()){
 }
 
 public void menubarCLOSE(){
-
+    System.exit(0);
 }
+
 public void menubarABOUT(){
     String str = "this program translates to morsecode with sound!";
     MorseIN.setText(str);
