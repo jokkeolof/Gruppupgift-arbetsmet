@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -20,11 +19,10 @@ import javafx.stage.Stage;
 public class Controller {
 
     @FXML private TextField MorseIN;
-    @FXML private Label MorseOUT;
     @FXML private TextArea MorseOUTTA;
     @FXML private Button Translate;
     @FXML private Button PlaySound;
-    @FXML private Button PlaySound2;
+    @FXML private Button Stopound;
     @FXML private CheckBox soundCheckBox;
     @FXML private MenuItem CloseItem;
     @FXML private MenuItem AboutItem;
@@ -33,9 +31,7 @@ public class Controller {
 
 
 MorseTranslator MT = new MorseTranslator();
-
 MorseCodeGenerator MCG = new MorseCodeGenerator();
-
 Main M = new Main();
 
 @FXML
@@ -62,22 +58,28 @@ private void translatebuttonpush(){
         }
     }else{
         MorseOUTTA.setText(MT.translateToString(str));
-    }
-if (soundCheckBox.isSelected()){
+        }
+    if (soundCheckBox.isSelected()){
 
     playsoundbuttonpush();
+}  }
 
+public void stop() {
+    MCG.stopSound();
 }
-}
-
 public void menubarCLOSE(){
-
+    System.exit(0);
 }
+
 public void menubarABOUT(){
-    String str = "this program translates to morsecode with sound!";
+    String str = "This program translates text to morsecode with sound!";
     MorseIN.setText(str);
     translatebuttonpush();
     playsoundbuttonpush();
+}
+public void menubarABOUTUS() {
+    String str = "This program is made as a teamwork project in class:\nArbetsmetodik för utvecklare - Systemintegratör 2018/19\nMade by:\nAnders Nilsson\nDennis Larsson\nJoakim Olofsson\nNicklas Holmberg";
+    MorseOUTTA.setText(str);
 }
     @FXML
     private void playsoundbuttonpush(){
