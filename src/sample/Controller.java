@@ -60,7 +60,6 @@ private void translatebuttonpush(){
         MorseOUTTA.setText(MT.translateToString(str));
         }
     if (soundCheckBox.isSelected()){
-
     playsoundbuttonpush();
 }  }
 
@@ -96,6 +95,15 @@ public void menubarABOUTUS() {
 
     public void changesceneTOFILE(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("ReadFile.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+    }
+    public void changesceneTOURL(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("ReadURL.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
 
