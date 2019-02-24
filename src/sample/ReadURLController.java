@@ -19,11 +19,8 @@ public class ReadURLController extends Controller{
     @FXML private TextArea MorseOUTTA;
     @FXML private CheckBox soundCheckBox;
 
-    Controller cont = new Controller();
-
     public void stop() {
-    cont.stop();
-    }
+        MCG.stopSound();    }
 
     private void translatebuttonpush(){
 
@@ -45,7 +42,15 @@ public class ReadURLController extends Controller{
 
     @FXML
     public void playsoundbuttonpush(){
-      cont.playsoundbuttonpush();
+        String str = MorseIN.getText();
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                MCG.startSound();
+                MCG.playSound(MT.toStringArray(str));
+            }
+        };
+        thread.start();
     }
 
     // Metod för att gå tillbaka till main scenen.

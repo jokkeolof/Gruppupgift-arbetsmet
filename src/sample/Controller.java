@@ -32,7 +32,6 @@ public class Controller {
 
 MorseTranslator MT = new MorseTranslator();
 MorseCodeGenerator MCG = new MorseCodeGenerator();
-Main M = new Main();
 
 
     /**

@@ -30,7 +30,6 @@ public class ReadFileController extends  Controller{
     @FXML private CheckBox SoundCheckBox;
     @FXML private Button StopSound;
 
-    Controller cont = new Controller();
 
     public void stop() {
         MCG.stopSound();
@@ -85,8 +84,14 @@ String str2show = "";
 
     //se samma metod i Controller
     public void playsoundbuttonpush(){
-        cont.playsoundbuttonpush();
-    }
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                MCG.startSound();
+                MCG.playSound(MT.toStringArray(str2MorseCode));
+            }
+        };
+        thread.start();    }
     // Metod för att gå tillbaka till Main scenen
     public void changesceneTOMAIN(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample.fxml"));
