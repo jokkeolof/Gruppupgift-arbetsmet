@@ -1,7 +1,11 @@
 package sample;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,17 +13,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
 
 // ärver från Controller klassen
 public class ReadFileController extends  Controller{
@@ -31,7 +27,8 @@ public class ReadFileController extends  Controller{
     @FXML private Button StopSound;
 
 
-    public void stop() {
+    @Override
+	public void stop() {
         MCG.stopSound();
     }
 
@@ -83,7 +80,8 @@ String str2show = "";
     }
 
     //se samma metod i Controller
-    public void playsoundbuttonpush(){
+    @Override
+	public void playsoundbuttonpush(){
         Thread thread = new Thread() {
             @Override
             public void run() {

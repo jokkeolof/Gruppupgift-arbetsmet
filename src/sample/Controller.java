@@ -1,7 +1,6 @@
 package sample;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,8 +25,6 @@ public class Controller {
     @FXML private CheckBox soundCheckBox;
     @FXML private MenuItem CloseItem;
     @FXML private MenuItem AboutItem;
-
-    private ArrayList<String> translation = new ArrayList<>();
 
 
 MorseTranslator MT = new MorseTranslator();

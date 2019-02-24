@@ -1,5 +1,7 @@
 package sample;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,17 +13,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class ReadURLController extends Controller{
 
     @FXML private TextField MorseIN;
     @FXML private TextArea MorseOUTTA;
     @FXML private CheckBox soundCheckBox;
 
-    public void stop() {
+    @Override
+	public void stop() {
         MCG.stopSound();    }
 
+    @FXML
     private void translatebuttonpush(){
 
         MorseOUTTA.setText("");    //Börja med att reseta texten
@@ -40,7 +42,8 @@ public class ReadURLController extends Controller{
             playsoundbuttonpush();
         }  }
 
-    @FXML
+    @Override
+	@FXML
     public void playsoundbuttonpush(){
         String str = MorseIN.getText();
         Thread thread = new Thread() {
