@@ -21,6 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 
+// ärver från Controller klassen
 public class ReadFileController extends  Controller{
 
     @FXML private Button file;
@@ -29,21 +30,28 @@ public class ReadFileController extends  Controller{
     @FXML private CheckBox SoundCheckBox;
     @FXML private Button StopSound;
 
-    MorseTranslator MT2 = new MorseTranslator();
-    MorseCodeGenerator MCG2 = new MorseCodeGenerator();
+    Controller cont = new Controller();
 
     public void stop() {
-        MCG2.stopSound();
+        MCG.stopSound();
     }
 
-String str2MorseCode =  "";
+    /**
+     * här behövdes två olika strängar för att visa inlästa texten från dokumenetet och för att visa morsekoden.
+     * den ena strängen beöver föja originaldokumentet med ny rad medans morsekoden ej behöver det.
+     */
+    String str2MorseCode =  "";
 String str2show = "";
-public void loadfile2(ActionEvent event) {
+
+    /**
+     *Metod för att ladda in ett TXT dokument som man kan översätta om så önskas.
+     */
+    public void loadfile2(ActionEvent event) {
     textareaUT.setText("");
     textareaIN.setText("");
         FileChooser fc = new FileChooser();
              fc.getExtensionFilters()
-            .addAll(
+            .addAll( //Styr till bara txt eller TXT filer är valbara
                     new FileChooser.ExtensionFilter("TXT files (*.TXT)", "*.TXT"),
                     new FileChooser.ExtensionFilter("txt files (*.txt)", "*.txt"));
 
@@ -60,31 +68,26 @@ public void loadfile2(ActionEvent event) {
                     textareaIN.setText(str2show);
                 }
 
-                br.close();
+                br.close(); //stänger filen
 
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
 }
-
+    //se samma metod i Controller, denna är väldigt avskalad
     public void translatebuttonpush(){
         String str2 = textareaIN.getText();
-        textareaUT.setText(MT2.toArrayList(str2).toString());
+        textareaUT.setText(MT.toArrayList(str2).toString());
         if (SoundCheckBox.isSelected()){
             playsoundbuttonpush();
         }
     }
-    private void playsoundbuttonpush(){
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                MCG2.startSound();
-                MCG2.playSound(MT2.toStringArray(str2MorseCode));
-            }
-        };
-        thread.start();
+
+    //se samma metod i Controller
+    public void playsoundbuttonpush(){
+        cont.playsoundbuttonpush();
     }
-    // Method to change back to scene 1
+    // Metod för att gå tillbaka till Main scenen
     public void changesceneTOMAIN(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);

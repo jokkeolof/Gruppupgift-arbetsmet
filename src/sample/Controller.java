@@ -34,7 +34,13 @@ MorseTranslator MT = new MorseTranslator();
 MorseCodeGenerator MCG = new MorseCodeGenerator();
 Main M = new Main();
 
-@FXML
+
+    /**
+     * event som startar när translate knappen trycks på i GUI´t. Metoden tar den inmatade strängen och översätter den
+     * samt visar morsekdoen. Om "with sound" är bockat är det även med ljud.
+     * If-sats styr om det är en URL från aftonbladet.
+     */
+    @FXML
 private void translatebuttonpush(){
 
     MorseOUTTA.setText("");    //Börja med att reseta texten
@@ -47,7 +53,7 @@ private void translatebuttonpush(){
             MorseOUTTA.setText("Vi kan inte hantera aftonbladets TV sidor");
             return;
         }
-        MorseOUTTA.setText("Hämtar artikel..");
+       // MorseOUTTA.setText("Hämtar artikel..");
         GEThtml get = new GEThtml();
         String ReturnedData = get.GETArticleFromURL(str);
         System.out.println(ReturnedData);
@@ -63,25 +69,37 @@ private void translatebuttonpush(){
     playsoundbuttonpush();
 }  }
 
-public void stop() {
+    /**
+     * stop funktion för ljudet. Enda sättet att få ljudet att sluta annars är att starta om applikationen.
+     * Ljudet fortsätter när den är stängd.
+     */
+    public void stop() {
     MCG.stopSound();
 }
-public void menubarCLOSE(){
+
+    /**
+     * De tre metoderna nedanför är till menyn som finns högst upp i programmets main sida.
+     */
+    public void menubarCLOSE(){
     System.exit(0);
 }
 
-public void menubarABOUT(){
+    public void menubarABOUT(){
     String str = "This program translates text to morsecode with sound!";
     MorseIN.setText(str);
     translatebuttonpush();
     playsoundbuttonpush();
 }
-public void menubarABOUTUS() {
+    public void menubarABOUTUS() {
     String str = "This program is made as a teamwork project in class:\nArbetsmetodik för utvecklare - Systemintegratör 2018/19\nMade by:\nAnders Nilsson\nDennis Larsson\nJoakim Olofsson\nNicklas Holmberg";
     MorseOUTTA.setText(str);
 }
+
+    /**
+     * För att starta ljudet anropar den funktioner från MorseCodeGenerator classen
+     */
     @FXML
-    private void playsoundbuttonpush(){
+    public void playsoundbuttonpush(){
         String str = MorseIN.getText();
         Thread thread = new Thread() {
             @Override
@@ -93,6 +111,9 @@ public void menubarABOUTUS() {
         thread.start();
     }
 
+    /**
+     * De två metoderna nedanför är till för att byta scener. En till att öppna ett txt dokument och den andra till URL.
+     */
     public void changesceneTOFILE(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("ReadFile.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);

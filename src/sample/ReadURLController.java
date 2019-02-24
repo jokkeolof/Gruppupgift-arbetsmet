@@ -19,10 +19,12 @@ public class ReadURLController extends Controller{
     @FXML private TextArea MorseOUTTA;
     @FXML private CheckBox soundCheckBox;
 
+    Controller cont = new Controller();
 
     public void stop() {
-        MCG.stopSound();
+    cont.stop();
     }
+
     private void translatebuttonpush(){
 
         MorseOUTTA.setText("");    //Börja med att reseta texten
@@ -42,19 +44,11 @@ public class ReadURLController extends Controller{
         }  }
 
     @FXML
-    private void playsoundbuttonpush(){
-        String str = MorseIN.getText();
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                MCG.startSound();
-                MCG.playSound(MT.toStringArray(str));
-            }
-        };
-        thread.start();
+    public void playsoundbuttonpush(){
+      cont.playsoundbuttonpush();
     }
 
-    // Method to change back to scene 1
+    // Metod för att gå tillbaka till main scenen.
     public void changesceneTOMAIN(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
